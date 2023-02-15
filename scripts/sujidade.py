@@ -1,3 +1,4 @@
+import sys
 import cv2
 import numpy as np
 
@@ -26,4 +27,7 @@ cv2.imshow('Imagem segmentada', thresh)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-print(f'Percentual de sujeira: {dirty_percentage:.2f}%')
+with open('output.txt', 'w') as w:
+    sys.stdout = w
+    print(f'Percentual de sujeira: {dirty_percentage:.2f}%')
+    sys.stdout = sys.__stdout__
