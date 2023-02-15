@@ -16,6 +16,8 @@ kernel = np.ones((5,5), np.uint8)
 morph = cv2.morphologyEx(blur, cv2.MORPH_GRADIENT, kernel)
 
 # Define um limite de intensidade de pixel para segmentar a imagem em áreas sujas e limpas
+# Dependendo de como vai ser as condições de iluminação de nossa escolha para foto, talvez
+# seja necessário ajustar empiricamente para obter melhores resultados
 thresh_value = 100
 _, thresh = cv2.threshold(morph, thresh_value, 255, cv2.THRESH_BINARY)
 
@@ -27,6 +29,7 @@ cv2.imshow('Imagem segmentada', thresh)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
+# Cria um arquivo de output com o percentual obtido
 with open('output.txt', 'w') as w:
     sys.stdout = w
     print(f'Percentual de sujeira: {dirty_percentage:.2f}%')
