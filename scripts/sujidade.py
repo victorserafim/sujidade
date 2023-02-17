@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 # Carrega a imagem do painel solar
-img = cv2.imread('../imagens/painel_solar.jpg')
+img = cv2.imread('../imagens/painel_solar4.png')
 
 # Converte a imagem para escala de cinza
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -18,7 +18,7 @@ morph = cv2.morphologyEx(blur, cv2.MORPH_GRADIENT, kernel)
 # Define um limite de intensidade de pixel para segmentar a imagem em áreas sujas e limpas
 # Dependendo de como vai ser as condições de iluminação de nossa escolha para foto, talvez
 # seja necessário ajustar empiricamente para obter melhores resultados
-thresh_value = 100
+thresh_value = 30
 _, thresh = cv2.threshold(morph, thresh_value, 255, cv2.THRESH_BINARY)
 
 # Calcula a porcentagem de pixels brancos na imagem segmentada
