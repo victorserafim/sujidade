@@ -28,6 +28,8 @@ binary_masked = cv2.bitwise_and(binary, mask)
 binary_masked = cv2.bitwise_not(binary_masked)
 
 # Contar o número de pixels brancos na região suja da placa solar
+# Aqui, utilizamos a função cv2.countNonZero() 
+# para contar o número de pixels brancos na imagem binarizada que estão dentro da região definida pela máscara
 dirty_pixels = cv2.countNonZero(binary_masked)
 
 # Contar o número total de pixels na região da máscara
