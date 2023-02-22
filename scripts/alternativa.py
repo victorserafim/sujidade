@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Carregar a imagem da placa solar
-img = cv2.imread('../imagens/painel_solar4.png')
+img = cv2.imread('../imagens/painel_solar.jpg')
 
 # Converter a imagem para escala de cinza
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -45,3 +45,4 @@ cv2.destroyAllWindows()
 
 # Imprimir o resultado
 print(f'Percentual de sujidade: {dirty_percentage:.2f}%')
+cv2.imwrite('imagem_processada.png', binary_masked)
